@@ -18,16 +18,68 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #34353a
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center;
+  }
+}
+.ANIMATED_BTN{
+  position: relative;
+  overflow: hidden;
+  padding: 27px 90px;
+  text-align: center;
+  transition: .75s ease-in-out;
+}
+.ANIMATED_BTN span{
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  top: 0;
+    bottom: 0;
+    margin: auto;
+    height: max-content;
+    
+}
+.ANIMATED_BTN:hover{ transition: .75s ease-in-out;color: #34353a;}
+.ANIMATED_BTN::after {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  right: -8px;
+  top: -29px;
+  height: 0%;
+  width: 53%;
+  transform: rotate(333deg);
+  border-left: 2px solid yellow;
+  transition: .75s ease-in-out;
+ 
+}
+.ANIMATED_BTN::before{
+ 
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  left: -8px;
+  bottom: -29px;
+  height: 0;
+  width: 53%;
+  transform: rotate(333deg);
+  border-right: 2px solid yellow;
+  transition: .75s ease-in-out;
+  transition-delay: 1s;
+}
+.ANIMATED_BTN:hover::after{
+  transition: .75s ease-in-out;
+  height: 184%;
+}
+.ANIMATED_BTN:hover::before{
+  transition: .75s ease-in-out;
+  height: 208%;
 }
